@@ -10,7 +10,8 @@ namespace Games.Domain
     {
         public Guid Id { get; set; }
         public string Title { get; set; }
-        public string Studio { get; set; }  
-        public List<string> Genres { get; set; }
+        public string Studio { get; set; }
+        public string[] Genres { get; set; }
+
     }
 }
