@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Games.Application.Games.Queries.GetGameList
 {
-    internal class GameListVm
+    public class GameListVm
     {
+        public IList<GameDto> Games { get; set; }   
     }
 }
