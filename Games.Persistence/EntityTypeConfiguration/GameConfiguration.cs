@@ -17,10 +17,11 @@ namespace Games.Persistence.EntityTypeConfiguration
             builder.HasKey(game => game.Id);
             builder.HasIndex(game => game.Id).IsUnique();
             builder.Property(game => game.Title).HasMaxLength(255);
-            builder.Property(game => game.Studio).HasMaxLength(255);    
-            builder.Property(game => game.Genres).HasConversion(
-                v => string.Join(',', v),
-                v => v.Split(',', StringSplitOptions.RemoveEmptyEntries));
+            builder.Property(game => game.Studio).HasMaxLength(255);
+            builder.Property(game => game.Genres);
+                //.HasConversion(
+                //v => string.Join(',', v),
+                //v => v.Split(',', StringSplitOptions.RemoveEmptyEntries)); 
         }
     }
 }
