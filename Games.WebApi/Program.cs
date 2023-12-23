@@ -3,6 +3,7 @@ using Games.Application.Common.Mappings;
 using System.Reflection;
 using Games.Application.Interfaces;
 using Games.Application;
+using App.Metrics.Formatters.Prometheus;
 
 namespace Games.WebApi
 {
@@ -19,6 +20,19 @@ namespace Games.WebApi
             });
             builder.Services.AddApplication();
             builder.Services.AddPersistence(builder.Configuration);
+
+            builder.Host
+                .UseMetricsWebTracking(options =>
+                {
+                    options.OAuth2TrackingEnabled = true;
+                })
+                .UseMetricsEndpoints(options =>
+                {
+                    options.EnvironmentInfoEndpointEnabled = false;
+                    options.MetricsTextEndpointOutputFormatter = new MetricsPrometheusTextOutputFormatter();
+                    options.MetricsEndpointOutputFormatter = new MetricsPrometheusProtobufOutputFormatter();
+                });
+
             builder.Services.AddControllers();
 
 

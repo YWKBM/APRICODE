@@ -9,13 +9,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{2D42F56B-3DCF-4F17-AA75-5422BAF26F1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Games.Domain", "Games.Domain\Games.Domain.csproj", "{95CE267E-5842-44BE-9D93-243DAC376926}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Games.Domain", "Games.Domain\Games.Domain.csproj", "{95CE267E-5842-44BE-9D93-243DAC376926}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Games.Application", "Games.Application\Games.Application.csproj", "{139D5104-6A6C-4B7A-B89C-9DFB03622230}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Games.Application", "Games.Application\Games.Application.csproj", "{139D5104-6A6C-4B7A-B89C-9DFB03622230}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Games.Persistence", "Games.Persistence\Games.Persistence.csproj", "{1B048D28-B530-401D-8CBE-71EC8D293559}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Games.Persistence", "Games.Persistence\Games.Persistence.csproj", "{1B048D28-B530-401D-8CBE-71EC8D293559}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Games.WebApi", "Games.WebApi\Games.WebApi.csproj", "{6FE08466-BD1F-490E-B606-0B46E2D075CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Games.WebApi", "Games.WebApi\Games.WebApi.csproj", "{6FE08466-BD1F-490E-B606-0B46E2D075CA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -3,6 +3,7 @@ using Games.Application.Games.Commands.DeleteGame;
 using Games.Application.Games.Commands.UpdateGame;
 using Games.Application.Games.Queries.GetGame;
 using Games.Application.Games.Queries.GetGameList;
+using Games.WebApi.metrics;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Games.WebApi.Controllers
@@ -13,6 +14,7 @@ namespace Games.WebApi.Controllers
         [HttpGet]
         public async Task<ActionResult<GameListVm>> GetAll()
         {
+            metrics.Measure.Counter.Increment(RequestMetrics.RequestGetAllCounter);
             var query = new GetGameListQuery();
             var vm = await Mediator.Send(query);
             return Ok(vm);
@@ -21,6 +23,7 @@ namespace Games.WebApi.Controllers
         [HttpGet("genres")]
         public async Task<ActionResult<GameListVm>> GetAllFiltered([FromBody] GetFilteredGameListQuery query)
         {
+            metrics.Measure.Counter.Increment(RequestMetrics.RequestGetAlFilteredlCounter);
             var vm = await Mediator.Send(query);
             return Ok(vm);
         }
@@ -28,6 +31,7 @@ namespace Games.WebApi.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<GameVm>> Get(Guid id)
         {
+            metrics.Measure.Counter.Increment(RequestMetrics.RequestGetByIdCounter);
             var query = new GetGameQuery
             {
                 Id = id 
@@ -39,6 +43,7 @@ namespace Games.WebApi.Controllers
         [HttpPost]
         public async Task<ActionResult<Guid>> Create([FromBody] CreateGameCommand command)
         {
+            metrics.Measure.Counter.Increment(RequestMetrics.RequestCreateCounter);
             var gameId = await Mediator.Send(command);
             return Ok(gameId);
         }
@@ -46,6 +51,7 @@ namespace Games.WebApi.Controllers
         [HttpPut]
         public async Task<ActionResult<Guid>> Update([FromBody] UpdateGameCommand command)
         {
+            metrics.Measure.Counter.Increment(RequestMetrics.RequestUpdateCounter);
             await Mediator.Send(command);
             return NoContent();
         }
@@ -53,6 +59,7 @@ namespace Games.WebApi.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(Guid id)
         {
+            metrics.Measure.Counter.Increment(RequestMetrics.RequestDeleteCounter);
             var command = new DeleteGameCommand
             {
                 Id = id
